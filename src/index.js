@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+export const UserInfo = React.createContext(); //creating context, to be used for passing down values to children components
+//createContext provides 2 values, Provider and consumer which is used to fetch passed value in child component
+
+const userName = "Dave"
+
 ReactDOM.render(
   <React.StrictMode>
+    <UserInfo.Provider value={userName}> 
     <App />
+    </UserInfo.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
