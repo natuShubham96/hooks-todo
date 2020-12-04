@@ -11,6 +11,7 @@ export default function TodoList () {
                 {state.todos.map(todo => 
                     <li key={todo.id}>
                         <span onDoubleClick={() => dispatch({type: "TOGGLE_TODO", payload: todo})}>{todo.text} - {todo.status}</span>
+                        <button style={{padding: "20px"}} onClick={() => dispatch({type: "REMOVE_TODO", payload: todo})}>Remove!!!</button>
                     </li>
                 )}
             </ul>
