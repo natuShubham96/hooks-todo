@@ -1,9 +1,15 @@
-import {useState, useContext} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import todoContext from '../context'
 
 export default function TODOFORM() {
     const [todo, setTodo] = useState("")
-    const {dispatch} = useContext(todoContext)
+    const {state: {currentTodo = {}},dispatch} = useContext(todoContext)
+
+    useEffect(() => {
+        if(currentTodo.text) {
+            setTodo(currentTodo.text)
+        }
+    }, [currentTodo.id])  //useEffect used to check if there is any currentTodo available and useEffect will be called only when currentTodo id changes
 
     const handleSubmit = (event) => {
 event.preventDefault();
