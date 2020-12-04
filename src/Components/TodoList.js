@@ -2,14 +2,15 @@ import {useContext} from 'react'
 import todoContext from '../context'
 
 export default function TodoList () {
-    const {state} = useContext(todoContext)  //grabbing the state passed via context.provider to child via useContext
-
+    const {state, dispatch} = useContext(todoContext)  //grabbing the state passed via context.provider to child via useContext
+    const title = state.todos.length>0? `${state.todos.length} Todos` : "Nothing to do!!!"
     return (
         <div>
+            <h1>{title}</h1>
             <ul>
                 {state.todos.map(todo => 
                     <li key={todo.id}>
-                        {todo.text}
+                        <span onDoubleClick={() => dispatch({type: "TOGGLE_TODO", payload: todo})}>{todo.text} - {todo.status}</span>
                     </li>
                 )}
             </ul>
