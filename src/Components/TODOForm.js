@@ -13,7 +13,12 @@ export default function TODOFORM() {
 
     const handleSubmit = (event) => {
 event.preventDefault();
+if(currentTodo.text) {
+    dispatch({type: "UPDATE_TODO", payload: todo})
+}
+else {
 dispatch({type: "ADD_TODO", payload: todo})
+}
 setTodo("")
     }
     
