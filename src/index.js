@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import todoContext from './context'
 import todoReducer from './reducer'
 import TodoList from './Components/TodoList'
+import TODOFORM from './Components/TODOForm'
 
 export const UserInfo = React.createContext(); //creating context, to be used for passing down values to children components
 //createContext provides 2 values, Provider and consumer which is used to fetch passed value in child component
@@ -29,6 +30,7 @@ const App = () => {
  //Passing the grabbed state and dispatch from useReducer to child components
   return (
 <todoContext.Provider value={{state,dispatch}}>  
+<TODOFORM />
 <TodoList />
 </todoContext.Provider>
   )
