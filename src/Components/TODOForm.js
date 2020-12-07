@@ -9,6 +9,9 @@ export default function TODOFORM() {
         if(currentTodo.text) {
             setTodo(currentTodo.text)
         }
+        else {
+            setTodo("")
+        }
     }, [currentTodo.id])  //useEffect used to check if there is any currentTodo available and useEffect will be called only when currentTodo id changes
 
     const handleSubmit = (event) => {
